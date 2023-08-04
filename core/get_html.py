@@ -1,27 +1,27 @@
+"""This module is for getting HTML from page URL."""
+
 import time
-
-
 import requests
 
 
-def get_html(URL: str) -> str:
-    """Get HTML from page URL
+def get_html(url: str) -> str:
+    """Get HTML from page URL.
 
     Args:
-        URL (str): URL of page
+        url (str): URL of the page.
 
     Returns:
-        str: HTML of page
+        str: HTML of the page.
     """
-
     while True:
         try:
-            response = requests.get(URL)
+            response = requests.get(url)
             if response.status_code == 200:
                 return response.text
-            else:
-                print(f'[{response.status_code}]: {URL}')
-                time.sleep(60)
-        except Exception as e:
-            print(f'[{e}]: {URL}')
+
+            print(f'[{response.status_code}]: {url}')
+            time.sleep(60)
+
+        except Exception as err:
+            print(f'[{err}]: {url}')
             time.sleep(60)
