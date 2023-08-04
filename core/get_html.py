@@ -22,6 +22,6 @@ def get_html(url: str) -> str:
             print(f'[{response.status_code}]: {url}')
             time.sleep(60)
 
-        except Exception as err:
+        except Exception as err: # pylint: disable=broad-except
             print(f'[{err}]: {url}')
             time.sleep(60)
